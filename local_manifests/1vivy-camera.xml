@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Apply patches/patch only after syncing these immutable upstream bases. -->
+  <extend-project name="crdroidandroid/android_hardware_oplus" revision="76d4d0c3c50775edb3cb203874e1aa8270f5e72d" />
+  <extend-project name="crdroidandroid/android_frameworks_base" revision="7581a03c73562497469d330db893ac2baa361129" />
+  <extend-project name="crdroidandroid/android_frameworks_native" revision="da1214c0a2625e98782acec189033c2974614fe4" />
+  <extend-project name="crdroidandroid/android_frameworks_av" revision="2598b568888069f73551f4502181eccb21066215" />
+  <extend-project name="crdroidandroid/android_device_qcom_sepolicy_vndr" revision="cad392c077ec072059805bac1b1725ad5175790a" />
+  <extend-project name="crdroidandroid/android_packages_apps_Sandbox" revision="067327711ce3a1519edb9b263d3f7dc09e2da6e7" />
+
+  <!-- Personal device lanes are pinned at the profile bases, never promoted heads. -->
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_infiniti" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_infiniti" optional="true" />
+  <project path="device/oneplus/infiniti" name="1vivy/android_device_oneplus_infiniti" remote="github" revision="ba57c74670f92f0a8870dfe2ab003aecfa2628cd" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_sm8850-common" optional="true" />
+  <remove-project name="crDroid-OnePlus-SM8850/android_device_oneplus_sm8850-common" optional="true" />
+  <project path="device/oneplus/sm8850-common" name="1vivy/android_device_oneplus_sm8850-common" remote="github" revision="0522cdc6164beb97711abc6f367032b021b5ca07" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_macan" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_macan" optional="true" />
+  <project path="device/oneplus/macan" name="1vivy/android_device_oneplus_macan" remote="github" revision="76c49481da937e12dc38b01f82c7a317ac565365" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_macanc" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_macanc" optional="true" />
+  <project path="device/oneplus/macanc" name="1vivy/android_device_oneplus_macanc" remote="github" revision="133b3eccfd07f5c1d1e4fd2958dc93372bd16076" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_fairlady" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_fairlady" optional="true" />
+  <project path="device/oneplus/fairlady" name="1vivy/android_device_oneplus_fairlady" remote="github" revision="de121f920ddc9ee15f6ba290dde51edf1cd03ef9" />
+
+  <!-- Pure sync inputs: these are never patch targets. -->
+  <project path="vendor/oneplus/camera-sm8850-common" name="infiniti-camera-port/vendor_oneplus_camera-sm8850-common" remote="github" revision="16.0-infiniti" />
+  <project path="vendor/oneplus/camera-infiniti" name="infiniti-camera-port/vendor_oneplus_camera-infiniti" remote="github" revision="16.0" />
+  <project path="proprietary/vendor/oneplus/camera-sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-sm8850-common" remote="github" revision="16.0-infiniti" />
+  <project path="proprietary/vendor/oneplus/camera-infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-infiniti" remote="github" revision="16.0" />
+  <project path="vendor/oneplus/sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_sm8850-common" remote="github" revision="16.0-infiniti" />
+  <project path="vendor/oneplus/infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_infiniti" remote="github" revision="16.0" />
+</manifest>
