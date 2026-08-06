@@ -24,9 +24,14 @@
 
   Composed 2026-08-05.
 
-  Five topic-bearing repos ride the 1vivy topic branch staging/features-v2/all:
+  Eight topic-bearing repos ride the 1vivy topic branch staging/features-v2/all:
 
       hardware/oplus                       1vivy/android_hardware_oplus
+      hardware/qcom-caf/sm8850/display/hal 1vivy/android_hardware_qcom_display
+      hardware/qcom-caf/sm8850/display/core
+                                           1vivy/android_vendor_qcom_opensource_display-core
+      hardware/qcom-caf/sm8850/display/intf
+                                           1vivy/android_vendor_qcom_opensource_display-intf
       frameworks/base                      1vivy/android_frameworks_base
       device/oneplus/infiniti              1vivy/android_device_oneplus_infiniti
       device/oneplus/sm8850-common         1vivy/android_device_oneplus_sm8850-common
@@ -42,18 +47,15 @@
 
   Everything else is unchanged from 1vivy-rom.xml.
 
-  DEFERRED - OSD caf-sm8850 DISPLAY SUBSTRATE. sm8850 builds display from the
-  LineageOS common stack today: hardware/qcom-caf/sm8850/Android.bp is a linkfile
-  to os_pickup_qssi.bp, which imports vendor/qcom/opensource/commonsys-intf/display
-  and vendor/qcom/opensource/display. No manifest - crDroid, LineageOS, or any
-  sibling sm8850 consumer - declares an sm8850 display project. Swapping in the
-  OnePlus-SM8850-Development caf-sm8850 display stack is a build-integration
-  change whose manifest projects, PRODUCT_SOONG_NAMESPACES entries and Android.bp
-  pickup must land TOGETHER, so it is deliberately NOT done here; it belongs to
-  the ltpo-adfr topic's integration commit. 1vivy/android_hardware_qcom_display
-  and 1vivy/android_vendor_qcom_opensource_display-core are published on
-  staging/features-v2/all but are intentionally UNCONSUMED by this manifest. The
-  omission is deliberate, not an oversight.
+  The OSD caf-sm8850 display trio is mounted below the existing
+  hardware/qcom-caf/sm8850 namespace as display/{hal,core,intf}, matching the
+  split used by sibling CAF platforms. The common project's os_pickup_qssi.bp
+  remains the parent Android.bp and keeps its Lineage common-display imports;
+  local modules in this namespace resolve before those imports. The infiniti
+  device exports the parent namespace through PRODUCT_SOONG_NAMESPACES. No
+  remove-project is needed because the platform manifest declares no project at
+  any of these three caf-sm8850 paths, and the common stack remains available at
+  its distinct vendor/qcom/opensource paths for dependencies.
 
   Only lineage_infiniti-bp4a-userdebug is built and runtime-validated upstream.
   macan, macanc and fairlady are present for source closure and static lunch
@@ -194,8 +196,16 @@
            remote="github-icp" revision="16.0" />
 
   <!-- ================================================================== -->
-  <!-- D. NON-MATRIX SM8850 CLOSURE - unchanged from the promoted graph.  -->
+  <!-- D. NON-MATRIX SM8850 CLOSURE.                                    -->
   <!-- ================================================================== -->
+
+  <!-- caf-sm8850 display substrate; local modules shadow parent imports -->
+  <project path="hardware/qcom-caf/sm8850/display/hal" name="1vivy/android_hardware_qcom_display"
+           remote="github-1vivy" revision="staging/features-v2/all" groups="qcom" />
+  <project path="hardware/qcom-caf/sm8850/display/core" name="1vivy/android_vendor_qcom_opensource_display-core"
+           remote="github-1vivy" revision="staging/features-v2/all" groups="qcom" />
+  <project path="hardware/qcom-caf/sm8850/display/intf" name="1vivy/android_vendor_qcom_opensource_display-intf"
+           remote="github-1vivy" revision="staging/features-v2/all" groups="qcom" />
 
   <!-- kernel source for generated_kernel_includes; boot images come from device prebuilts -->
   <project path="kernel/oneplus/sm8850" name="kernel/common"
