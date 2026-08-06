@@ -222,6 +222,14 @@
        other platform paths, which stay. -->
   <remove-project name="LineageOS/android_hardware_qcom_display"
                   path="hardware/qcom-caf/sm8750/display/hal" optional="true" />
+  <!-- The sm8750 display stack is three interdependent projects: hal defines the
+       qtidisplay_*_defaults that core and intf build against, so removing hal alone
+       orphans them ("libdisplaydebug depends on undefined module
+       qtidisplay_common_defaults"). Remove the trio as the unit it is. -->
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_display-core"
+                  path="hardware/qcom-caf/sm8750/display/core" optional="true" />
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_display-intf"
+                  path="hardware/qcom-caf/sm8750/display/intf" optional="true" />
 
   <!-- kernel source for generated_kernel_includes; boot images come from device prebuilts -->
   <project path="kernel/oneplus/sm8850" name="kernel/common"
