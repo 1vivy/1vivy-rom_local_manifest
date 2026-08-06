@@ -126,7 +126,7 @@
 
   <!-- camera source -->
   <project path="vendor/oneplus/camera-sm8850-common" name="infiniti-camera-port/vendor_oneplus_camera-sm8850-common"
-           remote="github-icp" revision="16.0-infiniti" />          <!-- PREREQ -->
+           remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
   <project path="vendor/oneplus/camera-infiniti" name="infiniti-camera-port/vendor_oneplus_camera-infiniti"
            remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
   <project path="vendor/oneplus/camera-macan" name="infiniti-camera-port/vendor_oneplus_camera-macan"
@@ -138,7 +138,7 @@
 
   <!-- generated camera blobs -->
   <project path="proprietary/vendor/oneplus/camera-sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-sm8850-common"
-           remote="github-icp" revision="16.0-infiniti" />          <!-- PREREQ -->
+           remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
   <project path="proprietary/vendor/oneplus/camera-infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-infiniti"
            remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
   <project path="proprietary/vendor/oneplus/camera-macan" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-macan"
@@ -152,7 +152,7 @@
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_sm8850-common" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_sm8850-common" optional="true" />
   <project path="vendor/oneplus/sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_sm8850-common"
-           remote="github-icp" revision="16.0-infiniti" />          <!-- PREREQ -->
+           remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
 
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_infiniti" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_infiniti" optional="true" />
