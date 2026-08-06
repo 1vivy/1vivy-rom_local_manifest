@@ -6,7 +6,7 @@
   Drop into .repo/local_manifests/ after:
 
       repo init -u https://github.com/crdroidandroid/android.git -b 16.0
-      # base manifest pinned at aac17d7a4a7b1e09f5ca5cb0f517ac0d73cfac91
+      # base manifest pinned at a311bc97e4784ee24e8f97e377d06bdbff85b4bb
 
   then `repo sync`.
 

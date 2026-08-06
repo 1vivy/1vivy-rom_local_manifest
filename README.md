@@ -38,7 +38,7 @@ in apply mode. Each target then reaches the promoted contract head.
 
 ## Composition
 
-- **Base** — crDroid `16.0`, pinned at `aac17d7a4a7b1e09f5ca5cb0f517ac0d73cfac91`.
+- **Base** — crDroid `16.0`, pinned at `a311bc97e4784ee24e8f97e377d06bdbff85b4bb`.
 - **Eight profile targets** — pinned at their `series.json` `base_sha`; the
   profile carries them to the promoted heads.
 - **Five device trees** — `1vivy/*` forks on `16.0`, cut at an immutable
