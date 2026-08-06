@@ -24,7 +24,7 @@
 
   Composed 2026-08-05.
 
-  Eight topic-bearing repos ride the 1vivy topic branch staging/features-v2/all:
+  Nine topic-bearing repos ride the 1vivy topic branch staging/features-v2/all:
 
       hardware/oplus                       1vivy/android_hardware_oplus
       hardware/qcom-caf/sm8850/display/hal 1vivy/android_hardware_qcom_display
@@ -36,6 +36,7 @@
       device/oneplus/infiniti              1vivy/android_device_oneplus_infiniti
       device/oneplus/sm8850-common         1vivy/android_device_oneplus_sm8850-common
       vendor/oneplus/camera-sm8850-common  1vivy/vendor_oneplus_camera-sm8850-common
+      vendor/oneplus/infiniti              1vivy/proprietary_vendor_oneplus_infiniti
 
   Four non-topic camera-port source targets are pinned at their PROMOTED 16.0
   head as full 40-char SHAs, so this lane is offline-immune and cannot drift:
@@ -177,8 +178,9 @@
 
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_infiniti" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_infiniti" optional="true" />
-  <project path="vendor/oneplus/infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_infiniti"
-           remote="github-icp" revision="16.0" />
+  <remove-project name="infiniti-camera-port/proprietary_vendor_oneplus_infiniti" optional="true" />
+  <project path="vendor/oneplus/infiniti" name="1vivy/proprietary_vendor_oneplus_infiniti"
+           remote="github-1vivy" revision="staging/features-v2/all" />
 
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_macan" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_macan" optional="true" />
