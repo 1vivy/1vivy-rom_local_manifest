@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  1vivy personal crDroid 16.0 ROM - OnePlus SM8850 (infiniti, macan, macanc,
+  fairlady). FEATURES-V2 LANE GOVERNED MANIFEST.
+
+  Drop into .repo/local_manifests/ as 1vivy-features-v2.xml after:
+
+      repo init -u https://github.com/crdroidandroid/android.git -b 16.0
+      # base manifest pinned at a311bc97e4784ee24e8f97e377d06bdbff85b4bb
+
+  then `repo sync`.
+
+  USE THIS FILE INSTEAD OF 1vivy-rom.xml - NEVER ALONGSIDE IT.
+
+  This is a STANDALONE composition. It declares the same paths as 1vivy-rom.xml,
+  so placing both in local_manifests/ at once is a configuration error.
+
+  THIS MANIFEST IS PUBLISHED-HEAD. Every revision below is at or past the head
+  the published patch profile would produce. DO NOT run
+  patches/patch/apply-patches.py against a tree synced from this file: the
+  profile is already contained in these heads by construction, and replaying it
+  would DOUBLE-APPLY. 1vivy-rom.xml is the opposite lane - it pins the profile's
+  BASE commits and the replay there is mandatory. The two must not be mixed.
+
+  Composed 2026-08-05.
+
+  Five topic-bearing repos ride the 1vivy topic branch staging/features-v2/all:
+
+      hardware/oplus                       1vivy/android_hardware_oplus
+      frameworks/base                      1vivy/android_frameworks_base
+      device/oneplus/infiniti              1vivy/android_device_oneplus_infiniti
+      device/oneplus/sm8850-common         1vivy/android_device_oneplus_sm8850-common
+      vendor/oneplus/camera-sm8850-common  1vivy/vendor_oneplus_camera-sm8850-common
+
+  Four non-topic camera-port source targets are pinned at their PROMOTED 16.0
+  head as full 40-char SHAs, so this lane is offline-immune and cannot drift:
+
+      frameworks/native                 7e6caf56f2a6550e89e03286cbc9f3401629b2c3
+      frameworks/av                     bade1ca9f81d7b819e27d39497349531359c3b9f
+      device/qcom/sepolicy_vndr/sm8850  838178d538901e80223d2e638df45d7295ffeb48
+      packages/apps/Sandbox             83d599f08df598770926afcccfd860f979418678
+
+  Everything else is unchanged from 1vivy-rom.xml.
+
+  DEFERRED - OSD caf-sm8850 DISPLAY SUBSTRATE. sm8850 builds display from the
+  LineageOS common stack today: hardware/qcom-caf/sm8850/Android.bp is a linkfile
+  to os_pickup_qssi.bp, which imports vendor/qcom/opensource/commonsys-intf/display
+  and vendor/qcom/opensource/display. No manifest - crDroid, LineageOS, or any
+  sibling sm8850 consumer - declares an sm8850 display project. Swapping in the
+  OnePlus-SM8850-Development caf-sm8850 display stack is a build-integration
+  change whose manifest projects, PRODUCT_SOONG_NAMESPACES entries and Android.bp
+  pickup must land TOGETHER, so it is deliberately NOT done here; it belongs to
+  the ltpo-adfr topic's integration commit. 1vivy/android_hardware_qcom_display
+  and 1vivy/android_vendor_qcom_opensource_display-core are published on
+  staging/features-v2/all but are intentionally UNCONSUMED by this manifest. The
+  omission is deliberate, not an oversight.
+
+  Only lineage_infiniti-bp4a-userdebug is built and runtime-validated upstream.
+  macan, macanc and fairlady are present for source closure and static lunch
+  resolution; no runtime result is implied for them.
+-->
+<manifest>
+
+  <remote name="github-icp" fetch="https://github.com/" />
+  <remote name="github-1vivy" fetch="https://github.com/" />
+
+  <!-- ================================================================== -->
+  <!-- A. CAMERA-PORT SOURCE TARGETS - PUBLISHED HEADS, NO PROFILE REPLAY.-->
+  <!--    Topic-bearing members ride staging/features-v2/all on 1vivy;    -->
+  <!--    the rest are pinned at their promoted 16.0 head SHA.            -->
+  <!-- ================================================================== -->
+
+  <remove-project name="crdroidandroid/android_frameworks_av" optional="true" />
+  <remove-project name="LineageOS/android_frameworks_av" optional="true" />
+  <project path="frameworks/av" name="infiniti-camera-port/android_frameworks_av"
+           remote="github-icp" revision="bade1ca9f81d7b819e27d39497349531359c3b9f"
+           groups="pdk,sysui-studio" />
+
+  <remove-project name="crdroidandroid/android_frameworks_base" optional="true" />
+  <remove-project name="LineageOS/android_frameworks_base" optional="true" />
+  <remove-project name="infiniti-camera-port/android_frameworks_base" optional="true" />
+  <project path="frameworks/base" name="1vivy/android_frameworks_base"
+           remote="github-1vivy" revision="staging/features-v2/all"
+           groups="pdk-cw-fs,pdk-fs,sysui-studio" />
+
+  <remove-project name="crdroidandroid/android_frameworks_native" optional="true" />
+  <remove-project name="LineageOS/android_frameworks_native" optional="true" />
+  <project path="frameworks/native" name="infiniti-camera-port/android_frameworks_native"
+           remote="github-icp" revision="7e6caf56f2a6550e89e03286cbc9f3401629b2c3"
+           groups="pdk" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_qcom_sepolicy_vndr" optional="true" />
+  <remove-project name="crdroidandroid/android_device_qcom_sepolicy_vndr" optional="true" />
+  <project path="device/qcom/sepolicy_vndr/sm8850" name="infiniti-camera-port/android_device_qcom_sepolicy_vndr"
+           remote="github-icp" revision="838178d538901e80223d2e638df45d7295ffeb48"
+           groups="kaanapali-vendor,qcom" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_hardware_oplus" optional="true" />
+  <remove-project name="crdroidandroid/android_hardware_oplus" optional="true" />
+  <remove-project name="infiniti-camera-port/android_hardware_oplus" optional="true" />
+  <project path="hardware/oplus" name="1vivy/android_hardware_oplus"
+           remote="github-1vivy" revision="staging/features-v2/all" />
+
+  <remove-project name="crdroidandroid/android_packages_apps_Sandbox" optional="true" />
+  <project path="packages/apps/Sandbox" name="infiniti-camera-port/android_packages_apps_Sandbox"
+           remote="github-icp" revision="83d599f08df598770926afcccfd860f979418678" />
+
+  <!-- ================================================================== -->
+  <!-- B. DEVICE TREES - 1vivy forks.                                     -->
+  <!--    infiniti and sm8850-common carry features-v2 topic work and     -->
+  <!--    ride staging/features-v2/all; the other three stay on 16.0.     -->
+  <!-- ================================================================== -->
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_infiniti" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_infiniti" optional="true" />
+  <project path="device/oneplus/infiniti" name="1vivy/android_device_oneplus_infiniti"
+           remote="github-1vivy" revision="staging/features-v2/all" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_sm8850-common" optional="true" />
+  <remove-project name="crDroid-OnePlus-SM8850/android_device_oneplus_sm8850-common" optional="true" />
+  <project path="device/oneplus/sm8850-common" name="1vivy/android_device_oneplus_sm8850-common"
+           remote="github-1vivy" revision="staging/features-v2/all" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_macan" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_macan" optional="true" />
+  <project path="device/oneplus/macan" name="1vivy/android_device_oneplus_macan"
+           remote="github-1vivy" revision="16.0" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_macanc" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_macanc" optional="true" />
+  <project path="device/oneplus/macanc" name="1vivy/android_device_oneplus_macanc"
+           remote="github-1vivy" revision="16.0" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_fairlady" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_fairlady" optional="true" />
+  <project path="device/oneplus/fairlady" name="1vivy/android_device_oneplus_fairlady"
+           remote="github-1vivy" revision="16.0" />
+
+  <!-- ================================================================== -->
+  <!-- C. SYNC-ONLY INPUTS.                                               -->
+  <!--    camera-sm8850-common is topic-bearing and rides                 -->
+  <!--    staging/features-v2/all; the rest close source for the devices. -->
+  <!-- ================================================================== -->
+
+  <!-- camera source -->
+  <remove-project name="infiniti-camera-port/vendor_oneplus_camera-sm8850-common" optional="true" />
+  <project path="vendor/oneplus/camera-sm8850-common" name="1vivy/vendor_oneplus_camera-sm8850-common"
+           remote="github-1vivy" revision="staging/features-v2/all" />
+  <project path="vendor/oneplus/camera-infiniti" name="infiniti-camera-port/vendor_oneplus_camera-infiniti"
+           remote="github-icp" revision="16.0" />
+  <project path="vendor/oneplus/camera-macan" name="infiniti-camera-port/vendor_oneplus_camera-macan"
+           remote="github-icp" revision="16.0" />
+  <project path="vendor/oneplus/camera-macanc" name="infiniti-camera-port/vendor_oneplus_camera-macanc"
+           remote="github-icp" revision="16.0" />
+  <project path="vendor/oneplus/camera-fairlady" name="infiniti-camera-port/vendor_oneplus_camera-fairlady"
+           remote="github-icp" revision="16.0" />
+
+  <!-- generated camera blobs -->
+  <project path="proprietary/vendor/oneplus/camera-sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-sm8850-common"
+           remote="github-icp" revision="16.0" />
+  <project path="proprietary/vendor/oneplus/camera-infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-infiniti"
+           remote="github-icp" revision="16.0" />
+  <project path="proprietary/vendor/oneplus/camera-macan" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-macan"
+           remote="github-icp" revision="16.0" />
+  <project path="proprietary/vendor/oneplus/camera-macanc" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-macanc"
+           remote="github-icp" revision="16.0" />
+  <project path="proprietary/vendor/oneplus/camera-fairlady" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-fairlady"
+           remote="github-icp" revision="16.0" />
+
+  <!-- device proprietary blobs -->
+  <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_sm8850-common" optional="true" />
+  <remove-project name="crdroidandroid/proprietary_vendor_oneplus_sm8850-common" optional="true" />
+  <project path="vendor/oneplus/sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_sm8850-common"
+           remote="github-icp" revision="16.0" />
+
+  <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_infiniti" optional="true" />
+  <remove-project name="crdroidandroid/proprietary_vendor_oneplus_infiniti" optional="true" />
+  <project path="vendor/oneplus/infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_infiniti"
+           remote="github-icp" revision="16.0" />
+
+  <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_macan" optional="true" />
+  <remove-project name="crdroidandroid/proprietary_vendor_oneplus_macan" optional="true" />
+  <project path="vendor/oneplus/macan" name="infiniti-camera-port/proprietary_vendor_oneplus_macan"
+           remote="github-icp" revision="16.0" />
+
+  <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_macanc" optional="true" />
+  <remove-project name="crdroidandroid/proprietary_vendor_oneplus_macanc" optional="true" />
+  <project path="vendor/oneplus/macanc" name="infiniti-camera-port/proprietary_vendor_oneplus_macanc"
+           remote="github-icp" revision="16.0" />
+
+  <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_fairlady" optional="true" />
+  <remove-project name="crdroidandroid/proprietary_vendor_oneplus_fairlady" optional="true" />
+  <project path="vendor/oneplus/fairlady" name="infiniti-camera-port/proprietary_vendor_oneplus_fairlady"
+           remote="github-icp" revision="16.0" />
+
+  <!-- ================================================================== -->
+  <!-- D. NON-MATRIX SM8850 CLOSURE - unchanged from the promoted graph.  -->
+  <!-- ================================================================== -->
+
+  <!-- kernel source for generated_kernel_includes; boot images come from device prebuilts -->
+  <project path="kernel/oneplus/sm8850" name="kernel/common"
+           remote="aosp" revision="android16-6.12-lts" clone-depth="1" />
+
+  <project path="device/oneplus/infiniti-kernel" name="OnePlus-SM8850-Development/android_device_oneplus_infiniti-kernel"
+           remote="github-icp" revision="refs/heads/lineage-23.2" />
+  <project path="device/oneplus/macan-kernel" name="OnePlus-SM8850-Development/android_device_oneplus_macan-kernel"
+           remote="github-icp" revision="refs/heads/lineage-23.2" />
+  <project path="device/oneplus/macanc-kernel" name="OnePlus-SM8850-Development/android_device_oneplus_macanc-kernel"
+           remote="github-icp" revision="refs/heads/lineage-23.2" />
+  <project path="device/oneplus/fairlady-kernel" name="OnePlus-SM8850-Development/android_device_oneplus_fairlady-kernel"
+           remote="github-icp" revision="refs/heads/lineage-23.2" />
+
+  <project path="hardware/qcom-caf/sm8850/audio/primary-hal" name="OnePlus-SM8850-Development/android_hardware_qcom_audio-ar"
+           remote="github-icp" revision="lineage-23.2-caf-sm8850" groups="kaanapali-audio,qcom" />
+
+  <remove-project name="LineageOS/android_hardware_qcom-caf_common" optional="true" />
+  <project path="hardware/qcom-caf/common" name="OnePlus-SM8850-Development/android_hardware_qcom-caf_common"
+           remote="github-icp" revision="refs/heads/lineage-23.2" groups="qcom">
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/msm8953/Android.bp" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8998/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm660/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm845/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8150/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8250/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8350/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8450/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8450-6.6/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8550/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8650/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8750/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8850/Android.bp" />
+  </project>
+
+  <remove-project name="LineageOS/android_hardware_qcom_thermal" optional="true" />
+  <project path="hardware/qcom-caf/thermal" name="OnePlus-SM8850-Development/android_hardware_qcom_thermal"
+           remote="github-icp" revision="refs/heads/lineage-23.2" groups="kaanapali-vendor,qcom" />
+  <project path="hardware/qcom-caf/thermal-legacy-um" name="LineageOS/android_hardware_qcom_thermal"
+           remote="github-icp" revision="lineage-23.2-legacy-um" groups="lanai-vendor,qcom" />
+
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_usb" optional="true" />
+  <project path="vendor/qcom/opensource/usb" name="OnePlus-SM8850-Development/android_vendor_qcom_opensource_usb"
+           remote="github-icp" revision="refs/heads/lineage-23.2" groups="kaanapali-vendor,qcom" />
+
+</manifest>
