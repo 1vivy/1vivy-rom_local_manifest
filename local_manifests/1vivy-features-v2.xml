@@ -211,6 +211,18 @@
   <project path="hardware/qcom-caf/sm8850/display/intf" name="1vivy/android_vendor_qcom_opensource_display-intf"
            remote="github-1vivy" revision="staging/features-v2/all" groups="qcom" />
 
+  <!-- The qtidisplay soong config namespace is GLOBAL, but each caf display tree
+       declares its own allowed value set for composer_version. Only two declare it:
+       sm8850 (ours) accepts v3_2/v3_3/v3_4, sm8750 accepts v2/v3/v3_3/qmaa. Their
+       only common value is v3_3, which is why the platform default is v3_3 - and
+       v3_3 is the one value our forked sm8850 stack cannot build at, because the
+       rest of it is on the V4/V13 generation. sm8750 is pakala, a platform this
+       lane never builds, so drop it rather than pin the whole tree to the
+       intersection. Path-scoped: the same project name is checked out at several
+       other platform paths, which stay. -->
+  <remove-project name="LineageOS/android_hardware_qcom_display"
+                  path="hardware/qcom-caf/sm8750/display/hal" optional="true" />
+
   <!-- kernel source for generated_kernel_includes; boot images come from device prebuilts -->
   <project path="kernel/oneplus/sm8850" name="kernel/common"
            remote="aosp" revision="android16-6.12-lts" clone-depth="1" />
