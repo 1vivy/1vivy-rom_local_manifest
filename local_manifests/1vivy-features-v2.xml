@@ -24,7 +24,7 @@
 
   Composed 2026-08-05.
 
-  Seven topic-bearing repos ride the 1vivy topic branch staging/features-v2/all:
+  Seven topic-bearing repos ride the 1vivy topic branch staging/features-v2/all-v2:
 
       hardware/oplus                       1vivy/android_hardware_oplus
       frameworks/base                      1vivy/android_frameworks_base
@@ -68,7 +68,7 @@
 
   <!-- ================================================================== -->
   <!-- A. CAMERA-PORT SOURCE TARGETS - PUBLISHED HEADS, NO PROFILE REPLAY.-->
-  <!--    Topic-bearing members ride staging/features-v2/all on 1vivy;    -->
+  <!--    Topic-bearing members ride staging/features-v2/all-v2 on 1vivy; -->
   <!--    the rest are pinned at their promoted 16.0 head SHA.            -->
   <!-- ================================================================== -->
 
@@ -82,7 +82,7 @@
   <remove-project name="LineageOS/android_frameworks_base" optional="true" />
   <remove-project name="infiniti-camera-port/android_frameworks_base" optional="true" />
   <project path="frameworks/base" name="1vivy/android_frameworks_base"
-           remote="github-1vivy" revision="staging/features-v2/all"
+           remote="github-1vivy" revision="staging/features-v2/all-v2"
            groups="pdk-cw-fs,pdk-fs,sysui-studio" />
 
   <remove-project name="crdroidandroid/android_frameworks_native" optional="true" />
@@ -101,7 +101,7 @@
   <remove-project name="crdroidandroid/android_hardware_oplus" optional="true" />
   <remove-project name="infiniti-camera-port/android_hardware_oplus" optional="true" />
   <project path="hardware/oplus" name="1vivy/android_hardware_oplus"
-           remote="github-1vivy" revision="staging/features-v2/all" />
+           remote="github-1vivy" revision="staging/features-v2/all-v2" />
 
   <remove-project name="crdroidandroid/android_packages_apps_Sandbox" optional="true" />
   <project path="packages/apps/Sandbox" name="infiniti-camera-port/android_packages_apps_Sandbox"
@@ -110,18 +110,18 @@
   <!-- ================================================================== -->
   <!-- B. DEVICE TREES - 1vivy forks.                                     -->
   <!--    infiniti and sm8850-common carry features-v2 topic work and     -->
-  <!--    ride staging/features-v2/all; the other three stay on 16.0.     -->
+  <!--    ride staging/features-v2/all-v2; the other three stay on 16.0.  -->
   <!-- ================================================================== -->
 
   <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_infiniti" optional="true" />
   <remove-project name="crdroidandroid/android_device_oneplus_infiniti" optional="true" />
   <project path="device/oneplus/infiniti" name="1vivy/android_device_oneplus_infiniti"
-           remote="github-1vivy" revision="staging/features-v2/all" />
+           remote="github-1vivy" revision="staging/features-v2/all-v2" />
 
   <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_sm8850-common" optional="true" />
   <remove-project name="crDroid-OnePlus-SM8850/android_device_oneplus_sm8850-common" optional="true" />
   <project path="device/oneplus/sm8850-common" name="1vivy/android_device_oneplus_sm8850-common"
-           remote="github-1vivy" revision="staging/features-v2/all" />
+           remote="github-1vivy" revision="staging/features-v2/all-v2" />
 
   <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_macan" optional="true" />
   <remove-project name="crdroidandroid/android_device_oneplus_macan" optional="true" />
@@ -141,13 +141,13 @@
   <!-- ================================================================== -->
   <!-- C. SYNC-ONLY INPUTS.                                               -->
   <!--    camera-sm8850-common is topic-bearing and rides                 -->
-  <!--    staging/features-v2/all; the rest close source for the devices. -->
+  <!--    staging/features-v2/all-v2; the rest close source for devices.  -->
   <!-- ================================================================== -->
 
   <!-- camera source -->
   <remove-project name="infiniti-camera-port/vendor_oneplus_camera-sm8850-common" optional="true" />
   <project path="vendor/oneplus/camera-sm8850-common" name="1vivy/vendor_oneplus_camera-sm8850-common"
-           remote="github-1vivy" revision="staging/features-v2/all" />
+           remote="github-1vivy" revision="staging/features-v2/all-v2" />
   <project path="vendor/oneplus/camera-infiniti" name="infiniti-camera-port/vendor_oneplus_camera-infiniti"
            remote="github-icp" revision="16.0" />
   <project path="vendor/oneplus/camera-macan" name="infiniti-camera-port/vendor_oneplus_camera-macan"
@@ -174,13 +174,13 @@
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_sm8850-common" optional="true" />
   <remove-project name="infiniti-camera-port/proprietary_vendor_oneplus_sm8850-common" optional="true" />
   <project path="vendor/oneplus/sm8850-common" name="1vivy/proprietary_vendor_oneplus_sm8850-common"
-           remote="github-1vivy" revision="staging/features-v2/all" />
+           remote="github-1vivy" revision="staging/features-v2/all-v2" />
 
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_infiniti" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_infiniti" optional="true" />
   <remove-project name="infiniti-camera-port/proprietary_vendor_oneplus_infiniti" optional="true" />
   <project path="vendor/oneplus/infiniti" name="1vivy/proprietary_vendor_oneplus_infiniti"
-           remote="github-1vivy" revision="staging/features-v2/all" />
+           remote="github-1vivy" revision="staging/features-v2/all-v2" />
 
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_macan" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_macan" optional="true" />
