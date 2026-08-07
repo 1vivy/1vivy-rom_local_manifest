@@ -158,8 +158,8 @@
            remote="github-icp" revision="16.0" />
 
   <!-- generated camera blobs -->
-  <project path="proprietary/vendor/oneplus/camera-sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-sm8850-common"
-           remote="github-icp" revision="16.0" />
+  <project path="proprietary/vendor/oneplus/camera-sm8850-common" name="1vivy/proprietary_vendor_oneplus_camera-sm8850-common"
+           remote="github-1vivy" revision="staging/features-v2/all-v2" />
   <project path="proprietary/vendor/oneplus/camera-infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-infiniti"
            remote="github-icp" revision="16.0" />
   <project path="proprietary/vendor/oneplus/camera-macan" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-macan"
