@@ -96,12 +96,12 @@
   <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_infiniti" optional="true" />
   <remove-project name="crdroidandroid/android_device_oneplus_infiniti" optional="true" />
   <project path="device/oneplus/infiniti" name="1vivy/android_device_oneplus_infiniti"
-           remote="github-1vivy" revision="staging/features-v2/blob-path-fixups" />
+           remote="github-1vivy" revision="16.0" />
 
   <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_sm8850-common" optional="true" />
   <remove-project name="crDroid-OnePlus-SM8850/android_device_oneplus_sm8850-common" optional="true" />
   <project path="device/oneplus/sm8850-common" name="1vivy/android_device_oneplus_sm8850-common"
-           remote="github-1vivy" revision="staging/features-v2/blob-path-fixups" />
+           remote="github-1vivy" revision="16.0" />
 
   <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_macan" optional="true" />
   <remove-project name="crdroidandroid/android_device_oneplus_macan" optional="true" />
@@ -125,8 +125,8 @@
   <!-- ================================================================== -->
 
   <!-- camera source -->
-  <project path="vendor/oneplus/camera-sm8850-common" name="1vivy/vendor_oneplus_camera-sm8850-common"
-           remote="github-1vivy" revision="staging/features-v2/blob-path-fixups" />                   <!-- PREREQ -->
+  <project path="vendor/oneplus/camera-sm8850-common" name="infiniti-camera-port/vendor_oneplus_camera-sm8850-common"
+           remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
   <project path="vendor/oneplus/camera-infiniti" name="infiniti-camera-port/vendor_oneplus_camera-infiniti"
            remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
   <project path="vendor/oneplus/camera-macan" name="infiniti-camera-port/vendor_oneplus_camera-macan"
@@ -137,8 +137,8 @@
            remote="github-icp" revision="16.0" />
 
   <!-- generated camera blobs -->
-  <project path="proprietary/vendor/oneplus/camera-sm8850-common" name="1vivy/proprietary_vendor_oneplus_camera-sm8850-common"
-           remote="github-1vivy" revision="staging/features-v2/blob-path-fixups" />                   <!-- PREREQ -->
+  <project path="proprietary/vendor/oneplus/camera-sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-sm8850-common"
+           remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
   <project path="proprietary/vendor/oneplus/camera-infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-infiniti"
            remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
   <project path="proprietary/vendor/oneplus/camera-macan" name="infiniti-camera-port/proprietary_vendor_oneplus_camera-macan"
@@ -151,13 +151,13 @@
   <!-- device proprietary blobs -->
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_sm8850-common" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_sm8850-common" optional="true" />
-  <project path="vendor/oneplus/sm8850-common" name="1vivy/proprietary_vendor_oneplus_sm8850-common"
-           remote="github-1vivy" revision="staging/features-v2/blob-path-fixups" />                   <!-- PREREQ -->
+  <project path="vendor/oneplus/sm8850-common" name="infiniti-camera-port/proprietary_vendor_oneplus_sm8850-common"
+           remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
 
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_infiniti" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_infiniti" optional="true" />
-  <project path="vendor/oneplus/infiniti" name="1vivy/proprietary_vendor_oneplus_infiniti"
-           remote="github-1vivy" revision="staging/features-v2/blob-path-fixups" />                   <!-- PREREQ -->
+  <project path="vendor/oneplus/infiniti" name="infiniti-camera-port/proprietary_vendor_oneplus_infiniti"
+           remote="github-icp" revision="16.0" />                   <!-- PREREQ -->
 
   <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_macan" optional="true" />
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_macan" optional="true" />
