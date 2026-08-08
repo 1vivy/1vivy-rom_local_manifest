@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Immutable 1vivy features-v3 control composition for crDroid 16.0 / Infiniti.
+
+  Use this file by itself. Do not install it alongside 1vivy-rom.xml and do not
+  replay the infiniti-camera-port profile: the five governed 1vivy source heads
+  already contain that profile-derived state. The other three profile source
+  targets are pinned at their immutable promoted OIDs. No promoted camera-port
+  manifest is included.
+-->
+<manifest>
+  <remote name="github-control" fetch="https://github.com/" />
+  <remote name="github-prerequisite" fetch="https://github.com/" />
+  <remote name="kernel-google" fetch="https://android.googlesource.com/" />
+
+  <!-- Profile-derived source route: five governed heads plus three full pins. -->
+  <remove-project name="crdroidandroid/android_frameworks_av" optional="true" />
+  <remove-project name="LineageOS/android_frameworks_av" optional="true" />
+  <project path="frameworks/av" name="infiniti-camera-port/android_frameworks_av"
+           remote="github-prerequisite" revision="bade1ca9f81d7b819e27d39497349531359c3b9f"
+           groups="pdk,sysui-studio" />
+
+  <remove-project name="crdroidandroid/android_frameworks_base" optional="true" />
+  <remove-project name="LineageOS/android_frameworks_base" optional="true" />
+  <remove-project name="infiniti-camera-port/android_frameworks_base" optional="true" />
+  <project path="frameworks/base" name="1vivy/android_frameworks_base"
+           remote="github-control" revision="df84aa6ebbfdffd424adcaa3ceca24813bc1972c"
+           groups="pdk-cw-fs,pdk-fs,sysui-studio" />
+
+  <remove-project name="crdroidandroid/android_frameworks_native" optional="true" />
+  <remove-project name="LineageOS/android_frameworks_native" optional="true" />
+  <remove-project name="infiniti-camera-port/android_frameworks_native" optional="true" />
+  <project path="frameworks/native" name="1vivy/android_frameworks_native-1"
+           remote="github-control" revision="5580fc478f4f5782923cae03cf2b27f99cad64d9"
+           groups="pdk" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_qcom_sepolicy_vndr" optional="true" />
+  <remove-project name="crdroidandroid/android_device_qcom_sepolicy_vndr" optional="true" />
+  <project path="device/qcom/sepolicy_vndr/sm8850" name="infiniti-camera-port/android_device_qcom_sepolicy_vndr"
+           remote="github-prerequisite" revision="838178d538901e80223d2e638df45d7295ffeb48"
+           groups="kaanapali-vendor,qcom" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_hardware_oplus" optional="true" />
+  <remove-project name="crdroidandroid/android_hardware_oplus" optional="true" />
+  <remove-project name="infiniti-camera-port/android_hardware_oplus" optional="true" />
+  <project path="hardware/oplus" name="1vivy/android_hardware_oplus"
+           remote="github-control" revision="c1b284edb6ea029c6532c10fed08301f30e802ef" />
+
+  <remove-project name="crdroidandroid/android_packages_apps_Sandbox" optional="true" />
+  <project path="packages/apps/Sandbox" name="infiniti-camera-port/android_packages_apps_Sandbox"
+           remote="github-prerequisite" revision="83d599f08df598770926afcccfd860f979418678" />
+
+  <!-- Governed Infiniti device and proprietary rows 1-12. -->
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_infiniti" optional="true" />
+  <remove-project name="crdroidandroid/android_device_oneplus_infiniti" optional="true" />
+  <project path="device/oneplus/infiniti" name="1vivy/android_device_oneplus_infiniti"
+           remote="github-control" revision="e73abaef494970282e1c5eae7ca69ab96003514a" />
+
+  <remove-project name="OnePlus-SM8850-Development/android_device_oneplus_sm8850-common" optional="true" />
+  <remove-project name="crDroid-OnePlus-SM8850/android_device_oneplus_sm8850-common" optional="true" />
+  <project path="device/oneplus/sm8850-common" name="1vivy/android_device_oneplus_sm8850-common"
+           remote="github-control" revision="1a9d600d5186db8b4d4f25f7ccbf348feaa297b1" />
+
+  <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_infiniti" optional="true" />
+  <remove-project name="crdroidandroid/proprietary_vendor_oneplus_infiniti" optional="true" />
+  <remove-project name="infiniti-camera-port/proprietary_vendor_oneplus_infiniti" optional="true" />
+  <project path="vendor/oneplus/infiniti" name="1vivy/proprietary_vendor_oneplus_infiniti"
+           remote="github-control" revision="4fd2c6ba6be2fcd0590cfba6bfc58aa608cb3254" />
+
+  <remove-project name="OnePlus-SM8850-Development/proprietary_vendor_oneplus_sm8850-common" optional="true" />
+  <remove-project name="crdroidandroid/proprietary_vendor_oneplus_sm8850-common" optional="true" />
+  <remove-project name="infiniti-camera-port/proprietary_vendor_oneplus_sm8850-common" optional="true" />
+  <project path="vendor/oneplus/sm8850-common" name="1vivy/proprietary_vendor_oneplus_sm8850-common"
+           remote="github-control" revision="160387e51dd0d8cdc6cfed239b9c33199dfcb936" />
+
+  <!-- Camera source closure and immutable external exact13 row 13 output. -->
+  <remove-project name="infiniti-camera-port/vendor_oneplus_camera-sm8850-common" optional="true" />
+  <project path="vendor/oneplus/camera-sm8850-common" name="1vivy/vendor_oneplus_camera-sm8850-common"
+           remote="github-control" revision="df6f8aff172364f6269e191f4dfef6fea2ec89f6" />
+  <project path="vendor/oneplus/camera-infiniti" name="infiniti-camera-port/vendor_oneplus_camera-infiniti"
+           remote="github-prerequisite" revision="e57bdeb1ae75c7aa1c2a0577f4a1d14d152a3fa4" />
+  <project path="proprietary/vendor/oneplus/camera-sm8850-common"
+           name="1vivy/proprietary_vendor_oneplus_camera-sm8850-common"
+           remote="github-control" revision="0c72ca8daa31d97630437bc1af49a70d2d70010d" />
+  <project path="proprietary/vendor/oneplus/camera-infiniti"
+           name="infiniti-camera-port/proprietary_vendor_oneplus_camera-infiniti"
+           remote="github-prerequisite" revision="31aa2b78ec6b2cee85d446db176e39441c45c7ba" />
+
+  <!-- Immutable Infiniti build closure. -->
+  <project path="kernel/oneplus/sm8850" name="kernel/common"
+           remote="kernel-google" revision="ef90d9cda2951bcc8726189623d49044d2c29c42" clone-depth="1" />
+  <project path="device/oneplus/infiniti-kernel"
+           name="OnePlus-SM8850-Development/android_device_oneplus_infiniti-kernel"
+           remote="github-prerequisite" revision="472942f5f1b77c1f120eb7e93a0bbb367e132647" />
+  <project path="hardware/qcom-caf/sm8850/audio/primary-hal"
+           name="OnePlus-SM8850-Development/android_hardware_qcom_audio-ar"
+           remote="github-prerequisite" revision="844dadd9ddae1926c2fd63d7247520ed3be34842"
+           groups="kaanapali-audio,qcom" />
+
+  <remove-project name="LineageOS/android_hardware_qcom-caf_common" optional="true" />
+  <project path="hardware/qcom-caf/common" name="OnePlus-SM8850-Development/android_hardware_qcom-caf_common"
+           remote="github-prerequisite" revision="8996747d97bde0ba2f3415d4f872c9636ad14caf" groups="qcom">
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8850/Android.bp" />
+  </project>
+
+  <remove-project name="LineageOS/android_hardware_qcom_thermal" optional="true" />
+  <project path="hardware/qcom-caf/thermal" name="OnePlus-SM8850-Development/android_hardware_qcom_thermal"
+           remote="github-prerequisite" revision="5c342560b59f0d17cf3ff35dfcf432636073feeb"
+           groups="kaanapali-vendor,qcom" />
+  <project path="hardware/qcom-caf/thermal-legacy-um" name="LineageOS/android_hardware_qcom_thermal"
+           remote="github-prerequisite" revision="ed7107216e598c4089d8ea2ed1d39c117ffab0c1"
+           groups="lanai-vendor,qcom" />
+
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_usb" optional="true" />
+  <project path="vendor/qcom/opensource/usb" name="OnePlus-SM8850-Development/android_vendor_qcom_opensource_usb"
+           remote="github-prerequisite" revision="38782a74953907c73538babde87cf547e0005a88"
+           groups="kaanapali-vendor,qcom" />
+</manifest>
