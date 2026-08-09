@@ -71,7 +71,7 @@
   <remove-project name="crdroidandroid/proprietary_vendor_oneplus_sm8850-common" optional="true" />
   <remove-project name="infiniti-camera-port/proprietary_vendor_oneplus_sm8850-common" optional="true" />
   <project path="vendor/oneplus/sm8850-common" name="1vivy/proprietary_vendor_oneplus_sm8850-common"
-           remote="github-control" revision="45b1834866407b168d90eb2d865c822eb8ecd67a" />
+           remote="github-control" revision="5320beaa14981c5223d7a4edefc857287682e0c6" />
 
   <!-- Camera source closure and immutable external exact13 row 13 output. -->
   <remove-project name="infiniti-camera-port/vendor_oneplus_camera-sm8850-common" optional="true" />
