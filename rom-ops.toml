@@ -37,14 +37,21 @@ url = "https://github.com/1vivy/android_device_oneplus_infiniti.git"
 role = "ours"
 required = true
 purpose = "Published personal-ROM contract branch."
-order = 4
+order = 0
 [[repositories.remotes]]
 name = "oneplus"
 url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_infiniti.git"
 role = "root-upstream"
 required = true
 purpose = "OEM device-tree source."
-order = 37
+order = 1
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/android_device_oneplus_infiniti.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 2
 
 [[repositories]]
 name = "android_device_oneplus_sm8850-common"
@@ -60,14 +67,21 @@ url = "https://github.com/1vivy/android_device_oneplus_sm8850-common.git"
 role = "ours"
 required = true
 purpose = "Published personal-ROM shared-common contract branch."
-order = 8
+order = 3
 [[repositories.remotes]]
 name = "oneplus"
 url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_sm8850-common.git"
 role = "root-upstream"
 required = true
 purpose = "OEM shared device-tree source."
-order = 41
+order = 4
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/android_device_oneplus_sm8850-common.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 5
 
 [[repositories]]
 name = "android_device_oneplus_macan"
@@ -83,14 +97,21 @@ url = "https://github.com/1vivy/android_device_oneplus_macan.git"
 role = "ours"
 required = true
 purpose = "Published personal-ROM contract branch."
-order = 5
+order = 6
 [[repositories.remotes]]
 name = "oneplus"
 url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_macan.git"
 role = "root-upstream"
 required = true
 purpose = "OEM device-tree source."
-order = 38
+order = 7
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/android_device_oneplus_macan.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 8
 
 [[repositories]]
 name = "android_device_oneplus_macanc"
@@ -106,14 +127,21 @@ url = "https://github.com/1vivy/android_device_oneplus_macanc.git"
 role = "ours"
 required = true
 purpose = "Published personal-ROM contract branch."
-order = 6
+order = 9
 [[repositories.remotes]]
 name = "oneplus"
 url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_macanc.git"
 role = "root-upstream"
 required = true
 purpose = "OEM device-tree source."
-order = 39
+order = 10
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/android_device_oneplus_macanc.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 11
 
 [[repositories]]
 name = "android_device_oneplus_fairlady"
@@ -129,14 +157,21 @@ url = "https://github.com/1vivy/android_device_oneplus_fairlady.git"
 role = "ours"
 required = true
 purpose = "Published personal-ROM contract branch."
-order = 7
+order = 12
 [[repositories.remotes]]
 name = "oneplus"
 url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_fairlady.git"
 role = "root-upstream"
 required = true
 purpose = "OEM device-tree source."
-order = 40
+order = 13
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/android_device_oneplus_fairlady.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 14
 
 [[repositories]]
 name = "local_manifest"
@@ -148,4 +183,4 @@ url = "https://github.com/1vivy/1vivy-rom_local_manifest.git"
 role = "ours"
 required = true
 purpose = "Publishes the personal-ROM aggregate manifest and its generated remote ledger."
-order = 100
+order = 15
