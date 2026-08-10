@@ -1,0 +1,28 @@
+# Remote ledger
+
+This ledger records every configured remote by role; remote names are not authoritative.
+
+| Repository | Remote | URL | Role | Required | Purpose | Base-Branch |
+|---|---|---|---|---|---| --- |
+| android_device_oneplus_infiniti | origin | https://github.com/1vivy/android_device_oneplus_infiniti.git | ours | required | Published personal-ROM contract branch. | oneplus/lineage-23.2 @ ba57c74670f92f0a8870dfe2ab003aecfa2628cd (behind 0) |
+| android_device_oneplus_macan | origin | https://github.com/1vivy/android_device_oneplus_macan.git | ours | required | Published personal-ROM contract branch. | oneplus/lineage-23.2 @ 76c49481da937e12dc38b01f82c7a317ac565365 (behind 0) |
+| android_device_oneplus_macanc | origin | https://github.com/1vivy/android_device_oneplus_macanc.git | ours | required | Published personal-ROM contract branch. | oneplus/lineage-23.2 @ 133b3eccfd07f5c1d1e4fd2958dc93372bd16076 (behind 0) |
+| android_device_oneplus_fairlady | origin | https://github.com/1vivy/android_device_oneplus_fairlady.git | ours | required | Published personal-ROM contract branch. | oneplus/lineage-23.2 @ de121f920ddc9ee15f6ba290dde51edf1cd03ef9 (behind 0) |
+| android_device_oneplus_sm8850-common | origin | https://github.com/1vivy/android_device_oneplus_sm8850-common.git | ours | required | Published personal-ROM shared-common contract branch. | oneplus/lineage-23.2 @ 0522cdc6164beb97711abc6f367032b021b5ca07 (behind 0) |
+| android_device_oneplus_infiniti | oneplus | https://github.com/OnePlus-SM8850-Development/android_device_oneplus_infiniti.git | root-upstream | required | OEM device-tree source. | oneplus/lineage-23.2 @ ba57c74670f92f0a8870dfe2ab003aecfa2628cd (behind 0) |
+| android_device_oneplus_macan | oneplus | https://github.com/OnePlus-SM8850-Development/android_device_oneplus_macan.git | root-upstream | required | OEM device-tree source. | oneplus/lineage-23.2 @ 76c49481da937e12dc38b01f82c7a317ac565365 (behind 0) |
+| android_device_oneplus_macanc | oneplus | https://github.com/OnePlus-SM8850-Development/android_device_oneplus_macanc.git | root-upstream | required | OEM device-tree source. | oneplus/lineage-23.2 @ 133b3eccfd07f5c1d1e4fd2958dc93372bd16076 (behind 0) |
+| android_device_oneplus_fairlady | oneplus | https://github.com/OnePlus-SM8850-Development/android_device_oneplus_fairlady.git | root-upstream | required | OEM device-tree source. | oneplus/lineage-23.2 @ de121f920ddc9ee15f6ba290dde51edf1cd03ef9 (behind 0) |
+| android_device_oneplus_sm8850-common | oneplus | https://github.com/OnePlus-SM8850-Development/android_device_oneplus_sm8850-common.git | root-upstream | required | OEM shared device-tree source. | oneplus/lineage-23.2 @ 0522cdc6164beb97711abc6f367032b021b5ca07 (behind 0) |
+| local_manifest | origin | https://github.com/1vivy/1vivy-rom_local_manifest.git | ours | required | Publishes the personal-ROM aggregate manifest and its generated remote ledger. | n/a (no declared root-upstream) |
+
+## Base branches
+
+`Base-Branch` records the branch on the declared `root-upstream` remote from which the
+contract was derived, the measured fork-point OID, and the cached distance from that fork
+point to the fetched upstream branch. Restrict candidates to refs on that declared remote
+and re-derive with `git merge-base`; the recorded distance is a cache, not authority.
+
+Rows for repositories without a declared `root-upstream` carry
+`n/a (no declared root-upstream)`. Every `root-upstream` row must instead carry a measured
+branch, fork point and distance. Fetch every declared remote before making a base claim.

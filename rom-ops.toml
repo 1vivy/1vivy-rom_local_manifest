@@ -1,0 +1,151 @@
+# Draft manifest-side contract. REMOTES.md is generated; this file is authoritative.
+schema = 1
+
+[remotes]
+title = "Remote ledger"
+description = "This ledger records every configured remote by role; remote names are not authoritative."
+columns = ["Repository", "Remote", "URL", "Role", "Required", "Purpose", "Base-Branch"]
+separator_row = "|---|---|---|---|---|---| --- |"
+fork_oid_length = 40
+footer = '''
+
+## Base branches
+
+`Base-Branch` records the branch on the declared `root-upstream` remote from which the
+contract was derived, the measured fork-point OID, and the cached distance from that fork
+point to the fetched upstream branch. Restrict candidates to refs on that declared remote
+and re-derive with `git merge-base`; the recorded distance is a cache, not authority.
+
+Rows for repositories without a declared `root-upstream` carry
+`n/a (no declared root-upstream)`. Every `root-upstream` row must instead carry a measured
+branch, fork point and distance. Fetch every declared remote before making a base claim.
+'''
+[publication]
+allowed_write_orgs = ["1vivy"]
+
+[[repositories]]
+name = "android_device_oneplus_infiniti"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2"
+oid = "ba57c74670f92f0a8870dfe2ab003aecfa2628cd"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_device_oneplus_infiniti.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM contract branch."
+order = 4
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_infiniti.git"
+role = "root-upstream"
+required = true
+purpose = "OEM device-tree source."
+order = 37
+
+[[repositories]]
+name = "android_device_oneplus_sm8850-common"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2"
+oid = "0522cdc6164beb97711abc6f367032b021b5ca07"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_device_oneplus_sm8850-common.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM shared-common contract branch."
+order = 8
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_sm8850-common.git"
+role = "root-upstream"
+required = true
+purpose = "OEM shared device-tree source."
+order = 41
+
+[[repositories]]
+name = "android_device_oneplus_macan"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2"
+oid = "76c49481da937e12dc38b01f82c7a317ac565365"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_device_oneplus_macan.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM contract branch."
+order = 5
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_macan.git"
+role = "root-upstream"
+required = true
+purpose = "OEM device-tree source."
+order = 38
+
+[[repositories]]
+name = "android_device_oneplus_macanc"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2"
+oid = "133b3eccfd07f5c1d1e4fd2958dc93372bd16076"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_device_oneplus_macanc.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM contract branch."
+order = 6
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_macanc.git"
+role = "root-upstream"
+required = true
+purpose = "OEM device-tree source."
+order = 39
+
+[[repositories]]
+name = "android_device_oneplus_fairlady"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2"
+oid = "de121f920ddc9ee15f6ba290dde51edf1cd03ef9"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_device_oneplus_fairlady.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM contract branch."
+order = 7
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/android_device_oneplus_fairlady.git"
+role = "root-upstream"
+required = true
+purpose = "OEM device-tree source."
+order = 40
+
+[[repositories]]
+name = "local_manifest"
+class = "integration"
+strategy = "merge-cherry-pick"
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/1vivy-rom_local_manifest.git"
+role = "ours"
+required = true
+purpose = "Publishes the personal-ROM aggregate manifest and its generated remote ledger."
+order = 100
