@@ -342,6 +342,350 @@ purpose = "Peer maintainer (ppanzenboeck / DerpFest) device tree; read-only comp
 order = 39
 
 [[repositories]]
+name = "android_hardware_oplus"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "76d4d0c3c50775edb3cb203874e1aa8270f5e72d"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_hardware_oplus.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM open Oplus hardware tree (livedisplay, displaypanelfeature publisher, ltpo)."
+order = 40
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_hardware_oplus.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid base for the open Oplus hardware tree."
+order = 41
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/android_hardware_oplus.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 42
+[[repositories.remotes]]
+name = "infinityx"
+url = "https://github.com/OP15InfinityX/android_hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (OP15InfinityX) fork; read-only comparison surface measured 2026-08-11."
+order = 43
+[[repositories.remotes]]
+name = "ppanzenboeck"
+url = "https://github.com/ppanzenboeck/hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (ppanzenboeck) fork; read-only comparison surface measured 2026-08-11."
+order = 44
+[[repositories.remotes]]
+name = "derpfest"
+url = "https://github.com/DerpFest-Devices/hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (DerpFest-Devices) fork; read-only comparison surface measured 2026-08-11."
+order = 45
+[[repositories.remotes]]
+name = "evolution-x"
+url = "https://github.com/Evolution-X-OnePlus-15/android_hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (Evolution-X-OnePlus-15) fork; read-only comparison surface measured 2026-08-11."
+order = 46
+[[repositories.remotes]]
+name = "risingos"
+url = "https://github.com/RisingOS-Revived-devices/hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (RisingOS-Revived-devices) fork; read-only comparison surface measured 2026-08-11."
+order = 47
+[[repositories.remotes]]
+name = "axion"
+url = "https://github.com/AxionOS-macan/android_hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (AxionOS-macan) fork; read-only comparison surface measured 2026-08-11."
+order = 48
+[[repositories.remotes]]
+name = "rab1d"
+url = "https://github.com/RaB1DLANDMINE/android_hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (RaB1DLANDMINE) fork; read-only comparison surface measured 2026-08-11."
+order = 49
+[[repositories.remotes]]
+name = "sm8850-dev"
+url = "https://github.com/sm8850-dev/hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (sm8850-dev) fork; read-only comparison surface measured 2026-08-11."
+order = 50
+[[repositories.remotes]]
+name = "sm8850-infiniti"
+url = "https://github.com/oneplus-sm8850-infiniti/android_hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (oneplus-sm8850-infiniti) fork; read-only comparison surface measured 2026-08-11."
+order = 51
+[[repositories.remotes]]
+name = "op15-dev"
+url = "https://github.com/OnePlus-15-Dev/android_hardware_oplus.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (OnePlus-15-Dev) fork; read-only comparison surface measured 2026-08-11."
+order = 52
+
+[[repositories]]
+name = "android_frameworks_base"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "a504a05d5c131bd0696d5d8c4b179253b3f4849d"
+behind = 1006
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_frameworks_base.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM framework fork (oplus-fwk compatibility and extension surfaces)."
+order = 53
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_frameworks_base.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid base for the platform framework."
+order = 54
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/android_frameworks_base.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 55
+[[repositories.remotes]]
+name = "infinityx"
+url = "https://github.com/OP15InfinityX/android_frameworks_base.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (OP15InfinityX) fork; read-only comparison surface measured 2026-08-11."
+order = 56
+[[repositories.remotes]]
+name = "ppanzenboeck"
+url = "https://github.com/ppanzenboeck/android_frameworks_base.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (ppanzenboeck) fork; read-only comparison surface measured 2026-08-11."
+order = 57
+[[repositories.remotes]]
+name = "evolution-x"
+url = "https://github.com/Evolution-X-OnePlus-15/frameworks_base.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (Evolution-X-OnePlus-15) fork; read-only comparison surface measured 2026-08-11."
+order = 58
+[[repositories.remotes]]
+name = "axion"
+url = "https://github.com/AxionOS-macan/android_frameworks_base.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (AxionOS-macan) fork; read-only comparison surface measured 2026-08-11."
+order = 59
+[[repositories.remotes]]
+name = "rab1d"
+url = "https://github.com/RaB1DLANDMINE/frameworks_base.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (RaB1DLANDMINE) fork; read-only comparison surface measured 2026-08-11."
+order = 60
+
+[[repositories]]
+name = "vendor_oneplus_camera-sm8850-common"
+# forked-source, not org-original-vendor: 1vivy forks this tree and
+# programs/1vivy/AGENTS.md names it explicitly as a rebase-with-force-push repo
+# ("including repos the port treats as merge-class, e.g. camera-sm8850-common"),
+# because this ROM intends no divergence there.
+class = "forked-source"
+strategy = "rebase-force-push"
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/vendor_oneplus_camera-sm8850-common.git"
+role = "ours"
+required = true
+purpose = "Camera source vendor tree consumed from the port; carries at most a commit or two destined upstream."
+order = 61
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/vendor_oneplus_camera-sm8850-common.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 62
+
+[[repositories]]
+name = "proprietary_vendor_oneplus_camera-sm8850-common"
+class = "blob-forked"
+strategy = "rebase-force-push-proprietary"
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/proprietary_vendor_oneplus_camera-sm8850-common.git"
+role = "ours"
+required = true
+purpose = "Generated camera blob tree paired with the camera source tree."
+order = 63
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/proprietary_vendor_oneplus_camera-sm8850-common.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 64
+[[repositories.remotes]]
+name = "evolution-x"
+url = "https://github.com/Evolution-X-OnePlus-15/proprietary_vendor_oneplus_camera-sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (Evolution-X-OnePlus-15) fork; read-only comparison surface measured 2026-08-11."
+order = 65
+
+[[repositories]]
+name = "proprietary_vendor_oneplus_infiniti"
+class = "blob-forked"
+strategy = "rebase-force-push-proprietary"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2"
+oid = "e84033e7e0df8f80fe7aeb7c8908474ffdcdef83"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/proprietary_vendor_oneplus_infiniti.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM device blob tree for infiniti."
+order = 66
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/proprietary_vendor_oneplus_infiniti.git"
+role = "root-upstream"
+required = true
+purpose = "OEM device blob source."
+order = 67
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/proprietary_vendor_oneplus_infiniti.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 68
+[[repositories.remotes]]
+name = "evolution-x"
+url = "https://github.com/Evolution-X-OnePlus-15/proprietary_vendor_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (Evolution-X-OnePlus-15) fork; read-only comparison surface measured 2026-08-11."
+order = 69
+[[repositories.remotes]]
+name = "risingos"
+url = "https://github.com/RisingOS-Revived-devices/proprietary_vendor_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (RisingOS-Revived-devices) fork; read-only comparison surface measured 2026-08-11."
+order = 70
+[[repositories.remotes]]
+name = "op15-dev"
+url = "https://github.com/OnePlus-15-Dev/proprietary_vendor_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (OnePlus-15-Dev) fork; read-only comparison surface measured 2026-08-11."
+order = 71
+
+[[repositories]]
+name = "proprietary_vendor_oneplus_sm8850-common"
+class = "blob-forked"
+strategy = "rebase-force-push-proprietary"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2"
+oid = "af791f92595703f1c5d6a4236a98a5f1c821229f"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/proprietary_vendor_oneplus_sm8850-common.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM common blob tree (charger V11, FIDO, cryptoeng, sensor, URCC closures)."
+order = 72
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/proprietary_vendor_oneplus_sm8850-common.git"
+role = "root-upstream"
+required = true
+purpose = "OEM common blob source."
+order = 73
+[[repositories.remotes]]
+name = "camera-port"
+url = "https://github.com/infiniti-camera-port/proprietary_vendor_oneplus_sm8850-common.git"
+role = "delta-source"
+required = true
+purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
+order = 74
+[[repositories.remotes]]
+name = "derpfest"
+url = "https://github.com/DerpFest-Devices/proprietary_vendor_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (DerpFest-Devices) fork; read-only comparison surface measured 2026-08-11."
+order = 75
+[[repositories.remotes]]
+name = "evolution-x"
+url = "https://github.com/Evolution-X-OnePlus-15/proprietary_vendor_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (Evolution-X-OnePlus-15) fork; read-only comparison surface measured 2026-08-11."
+order = 76
+[[repositories.remotes]]
+name = "risingos"
+url = "https://github.com/RisingOS-Revived-devices/proprietary_vendor_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (RisingOS-Revived-devices) fork; read-only comparison surface measured 2026-08-11."
+order = 77
+[[repositories.remotes]]
+name = "axion"
+url = "https://github.com/AxionOS-macan/proprietary_vendor_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (AxionOS-macan) fork; read-only comparison surface measured 2026-08-11."
+order = 78
+[[repositories.remotes]]
+name = "rab1d"
+url = "https://github.com/RaB1DLANDMINE/proprietary_vendor_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (RaB1DLANDMINE) fork; read-only comparison surface measured 2026-08-11."
+order = 79
+[[repositories.remotes]]
+name = "sm8850-dev"
+url = "https://github.com/sm8850-dev/vendor_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (sm8850-dev) fork; read-only comparison surface measured 2026-08-11."
+order = 80
+[[repositories.remotes]]
+name = "op15-dev"
+url = "https://github.com/OnePlus-15-Dev/proprietary_vendor_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (OnePlus-15-Dev) fork; read-only comparison surface measured 2026-08-11."
+order = 81
+
+[[repositories]]
 name = "local_manifest"
 class = "integration"
 strategy = "merge-cherry-pick"
@@ -352,3 +696,10 @@ role = "ours"
 required = true
 purpose = "Publishes the personal-ROM aggregate manifest and its generated remote ledger."
 order = 15
+
+[topic]
+# The passphraseless agentic key. The owner key 616B6A6050DF1E4B must never be
+# used from an agent session (pinentry has no TTY). The topic gate partitions
+# ours vs imported commits and signature-checks ONLY ours, so inherited
+# published history is not retroactively required to carry this key.
+signing_key = "97B197860AFFE0A3"
