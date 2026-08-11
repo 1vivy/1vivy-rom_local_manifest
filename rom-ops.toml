@@ -703,3 +703,26 @@ order = 15
 # ours vs imported commits and signature-checks ONLY ours, so inherited
 # published history is not retroactively required to carry this key.
 signing_key = "97B197860AFFE0A3"
+
+# Source/blob pairs. `rom verify declaration-coherence` reads these to cross-check
+# each source repository's proprietary-files*.txt declarations against the paired
+# blob repository's actual tree, in BOTH directions: a declared path absent from the
+# blob is MISSING, and a payload path under proprietary/ or radio/ that nothing
+# declares is UNDECLARED. That is the mechanized form of the paired-changes rule -
+# both halves land whole, or neither.
+#
+# Three pairs exist in this graph. macan, macanc and fairlady have none: their
+# proprietary vendor trees are consumed from the camera-port organization rather
+# than forked under 1vivy, so no 1vivy blob repository pairs with them.
+
+[[pairs]]
+source = "android_device_oneplus_infiniti"
+blob = "proprietary_vendor_oneplus_infiniti"
+
+[[pairs]]
+source = "android_device_oneplus_sm8850-common"
+blob = "proprietary_vendor_oneplus_sm8850-common"
+
+[[pairs]]
+source = "vendor_oneplus_camera-sm8850-common"
+blob = "proprietary_vendor_oneplus_camera-sm8850-common"
