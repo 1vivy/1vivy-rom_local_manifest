@@ -703,6 +703,66 @@ order = 15
 # ours vs imported commits and signature-checks ONLY ours, so inherited
 # published history is not retroactively required to carry this key.
 signing_key = "97B197860AFFE0A3"
+[[repositories]]
+name = "android_lineage-sdk"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "640eb2fc28e9aefb653d9fe3780d8acbb9af5bdc"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_lineage-sdk.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM Lineage SDK fork; owns the hardware-manager exception contract every LiveDisplay caller depends on."
+order = 82
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_lineage-sdk.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid base for the Lineage SDK; the branch this fork was cut from."
+order = 83
+[[repositories.remotes]]
+name = "lineage"
+url = "https://github.com/LineageOS/android_lineage-sdk.git"
+role = "reference"
+required = false
+purpose = "LineageOS origin of the SDK; the submission target for upstreamable fixes."
+order = 84
+
+[[repositories]]
+name = "android_packages_apps_LineageParts"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "42b6c207deb40ae869d8ce8510405ee0bae87c3f"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_packages_apps_LineageParts.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM LineageParts fork; owns the LiveDisplay user surface that must survive a HAL failure."
+order = 85
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_packages_apps_LineageParts.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid base for LineageParts; the branch this fork was cut from."
+order = 86
+[[repositories.remotes]]
+name = "lineage"
+url = "https://github.com/LineageOS/android_packages_apps_LineageParts.git"
+role = "reference"
+required = false
+purpose = "LineageOS origin of LineageParts; the submission target for upstreamable fixes."
+order = 87
+
 
 # Source/blob pairs. `rom verify declaration-coherence` reads these to cross-check
 # each source repository's proprietary-files*.txt declarations against the paired
