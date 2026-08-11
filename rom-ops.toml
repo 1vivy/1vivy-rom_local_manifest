@@ -52,6 +52,48 @@ role = "delta-source"
 required = true
 purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
 order = 2
+[[repositories.remotes]]
+name = "infinityx"
+url = "https://github.com/OP15InfinityX/android_device_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (InfinityX) device tree; read-only comparison surface."
+order = 16
+[[repositories.remotes]]
+name = "ppanzenboeck"
+url = "https://github.com/ppanzenboeck/android_device_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer maintainer (ppanzenboeck / DerpFest) device tree; read-only comparison surface."
+order = 17
+[[repositories.remotes]]
+name = "evolution-x"
+url = "https://github.com/Evolution-X-OnePlus-15/android_device_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (Evolution X) device tree; read-only comparison surface."
+order = 18
+[[repositories.remotes]]
+name = "risingos"
+url = "https://github.com/RisingOS-Revived-devices/android_device_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (RisingOS Revived) device tree; read-only comparison surface."
+order = 19
+[[repositories.remotes]]
+name = "sm8850-infiniti"
+url = "https://github.com/oneplus-sm8850-infiniti/android_device_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer bring-up org (oneplus-sm8850-infiniti) device tree; read-only comparison surface."
+order = 20
+[[repositories.remotes]]
+name = "op15-dev"
+url = "https://github.com/OnePlus-15-Dev/device_oneplus_infiniti.git"
+role = "reference"
+required = false
+purpose = "Peer bring-up org (OnePlus-15-Dev) device tree; read-only comparison surface."
+order = 21
 
 [[repositories]]
 name = "android_device_oneplus_sm8850-common"
@@ -82,6 +124,76 @@ role = "delta-source"
 required = true
 purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
 order = 5
+[[repositories.remotes]]
+name = "infinityx"
+url = "https://github.com/OP15InfinityX/android_device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (InfinityX) shared-common tree; read-only comparison surface."
+order = 22
+[[repositories.remotes]]
+name = "ppanzenboeck"
+url = "https://github.com/ppanzenboeck/android_device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer maintainer (ppanzenboeck / DerpFest) shared-common tree; read-only comparison surface."
+order = 23
+[[repositories.remotes]]
+name = "derpfest"
+url = "https://github.com/DerpFest-Devices/android_device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (DerpFest) shared-common tree; read-only comparison surface."
+order = 24
+[[repositories.remotes]]
+name = "evolution-x"
+url = "https://github.com/Evolution-X-OnePlus-15/android_device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (Evolution X) shared-common tree; read-only comparison surface."
+order = 25
+[[repositories.remotes]]
+name = "risingos"
+url = "https://github.com/RisingOS-Revived-devices/android_device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (RisingOS Revived) shared-common tree; read-only comparison surface."
+order = 26
+[[repositories.remotes]]
+name = "axion"
+url = "https://github.com/AxionOS-macan/android_device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (AxionOS) shared-common tree; read-only comparison surface."
+order = 27
+[[repositories.remotes]]
+name = "rab1d"
+url = "https://github.com/RaB1DLANDMINE/android_device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer maintainer (RaB1DLANDMINE) shared-common tree; read-only comparison surface."
+order = 28
+[[repositories.remotes]]
+name = "sm8850-dev"
+url = "https://github.com/sm8850-dev/device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer bring-up org (sm8850-dev) shared-common tree; read-only comparison surface."
+order = 29
+[[repositories.remotes]]
+name = "sm8850-infiniti"
+url = "https://github.com/oneplus-sm8850-infiniti/android_device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer bring-up org (oneplus-sm8850-infiniti) shared-common tree; read-only comparison surface."
+order = 30
+[[repositories.remotes]]
+name = "op15-dev"
+url = "https://github.com/OnePlus-15-Dev/device_oneplus_sm8850-common.git"
+role = "reference"
+required = false
+purpose = "Peer bring-up org (OnePlus-15-Dev) shared-common tree; read-only comparison surface."
+order = 31
 
 [[repositories]]
 name = "android_device_oneplus_macan"
@@ -112,6 +224,27 @@ role = "delta-source"
 required = true
 purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
 order = 8
+[[repositories.remotes]]
+name = "ppanzenboeck"
+url = "https://github.com/ppanzenboeck/android_device_oneplus_macan.git"
+role = "reference"
+required = false
+purpose = "Peer maintainer (ppanzenboeck / DerpFest) device tree; read-only comparison surface."
+order = 32
+[[repositories.remotes]]
+name = "axion"
+url = "https://github.com/AxionOS-macan/android_device_oneplus_macan.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (AxionOS) device tree; read-only comparison surface."
+order = 33
+[[repositories.remotes]]
+name = "rab1d"
+url = "https://github.com/RaB1DLANDMINE/android_device_oneplus_macan.git"
+role = "reference"
+required = false
+purpose = "Peer maintainer (RaB1DLANDMINE) device tree; read-only comparison surface."
+order = 34
 
 [[repositories]]
 name = "android_device_oneplus_macanc"
@@ -142,6 +275,34 @@ role = "delta-source"
 required = true
 purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
 order = 11
+[[repositories.remotes]]
+name = "ppanzenboeck"
+url = "https://github.com/ppanzenboeck/android_device_oneplus_macanc.git"
+role = "reference"
+required = false
+purpose = "Peer maintainer (ppanzenboeck / DerpFest) device tree; read-only comparison surface."
+order = 35
+[[repositories.remotes]]
+name = "axion"
+url = "https://github.com/AxionOS-macan/android_device_oneplus_macanc.git"
+role = "reference"
+required = false
+purpose = "Peer ROM (AxionOS) device tree; read-only comparison surface."
+order = 36
+[[repositories.remotes]]
+name = "rab1d"
+url = "https://github.com/RaB1DLANDMINE/android_device_oneplus_macanc.git"
+role = "reference"
+required = false
+purpose = "Peer maintainer (RaB1DLANDMINE) device tree; read-only comparison surface."
+order = 37
+[[repositories.remotes]]
+name = "sm8850-dev"
+url = "https://github.com/sm8850-dev/device_oneplus_macanc.git"
+role = "reference"
+required = false
+purpose = "Peer bring-up org (sm8850-dev) device tree; read-only comparison surface."
+order = 38
 
 [[repositories]]
 name = "android_device_oneplus_fairlady"
@@ -172,6 +333,13 @@ role = "delta-source"
 required = true
 purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
 order = 14
+[[repositories.remotes]]
+name = "ppanzenboeck"
+url = "https://github.com/ppanzenboeck/android_device_oneplus_fairlady.git"
+role = "reference"
+required = false
+purpose = "Peer maintainer (ppanzenboeck / DerpFest) device tree; read-only comparison surface."
+order = 39
 
 [[repositories]]
 name = "local_manifest"
