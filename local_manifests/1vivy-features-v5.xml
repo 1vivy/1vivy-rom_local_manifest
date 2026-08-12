@@ -196,6 +196,11 @@
   <project path="lineage-sdk" name="1vivy/android_lineage-sdk"
            remote="github-1vivy" revision="staging/features-v5/all" />
 
+  <remove-project name="crdroidandroid/android_packages_apps_Settings" optional="true" />
+  <remove-project name="LineageOS/android_packages_apps_Settings" optional="true" />
+  <project path="packages/apps/Settings" name="1vivy/android_packages_apps_Settings"
+           remote="github-1vivy" revision="staging/features-v5/all" />
+
   <remove-project name="crdroidandroid/android_packages_apps_LineageParts" optional="true" />
   <remove-project name="LineageOS/android_packages_apps_LineageParts" optional="true" />
   <project path="packages/apps/LineageParts" name="1vivy/android_packages_apps_LineageParts"

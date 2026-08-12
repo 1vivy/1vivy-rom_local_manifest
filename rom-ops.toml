@@ -763,6 +763,37 @@ required = false
 purpose = "LineageOS origin of LineageParts; the submission target for upstreamable fixes."
 order = 87
 
+[[repositories]]
+name = "android_packages_apps_Settings"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "57f8d3535b5f5586d58956c04ca06b78fae5f278"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_packages_apps_Settings.git"
+role = "ours"
+required = true
+purpose = "Published personal-ROM Settings fork; owns resource-level fixes an RRO cannot express, such as a preference screen whose root tag the search indexer rejects."
+order = 88
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_packages_apps_Settings.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid base for Settings; the branch this fork was cut from."
+order = 89
+[[repositories.remotes]]
+name = "lineage"
+url = "https://github.com/LineageOS/android_packages_apps_Settings.git"
+role = "reference"
+required = false
+purpose = "LineageOS origin of Settings; the submission target for upstreamable fixes."
+order = 90
+
+
 
 # Source/blob pairs. `rom verify declaration-coherence` reads these to cross-check
 # each source repository's proprietary-files*.txt declarations against the paired

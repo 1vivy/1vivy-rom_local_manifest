@@ -92,6 +92,9 @@ This ledger records every configured remote by role; remote names are not author
 | android_packages_apps_LineageParts | origin | https://github.com/1vivy/android_packages_apps_LineageParts.git | ours | required | Published personal-ROM LineageParts fork; owns the LiveDisplay user surface that must survive a HAL failure. | crdroid/16.0 @ 42b6c207deb40ae869d8ce8510405ee0bae87c3f (behind 0) |
 | android_packages_apps_LineageParts | crdroid | https://github.com/crdroidandroid/android_packages_apps_LineageParts.git | root-upstream | required | crDroid base for LineageParts; the branch this fork was cut from. | crdroid/16.0 @ 42b6c207deb40ae869d8ce8510405ee0bae87c3f (behind 0) |
 | android_packages_apps_LineageParts | lineage | https://github.com/LineageOS/android_packages_apps_LineageParts.git | reference | optional | LineageOS origin of LineageParts; the submission target for upstreamable fixes. | crdroid/16.0 @ 42b6c207deb40ae869d8ce8510405ee0bae87c3f (behind 0) |
+| android_packages_apps_Settings | origin | https://github.com/1vivy/android_packages_apps_Settings.git | ours | required | Published personal-ROM Settings fork; owns resource-level fixes an RRO cannot express, such as a preference screen whose root tag the search indexer rejects. | crdroid/16.0 @ 57f8d3535b5f5586d58956c04ca06b78fae5f278 (behind 0) |
+| android_packages_apps_Settings | crdroid | https://github.com/crdroidandroid/android_packages_apps_Settings.git | root-upstream | required | crDroid base for Settings; the branch this fork was cut from. | crdroid/16.0 @ 57f8d3535b5f5586d58956c04ca06b78fae5f278 (behind 0) |
+| android_packages_apps_Settings | lineage | https://github.com/LineageOS/android_packages_apps_Settings.git | reference | optional | LineageOS origin of Settings; the submission target for upstreamable fixes. | crdroid/16.0 @ 57f8d3535b5f5586d58956c04ca06b78fae5f278 (behind 0) |
 
 ## Base branches
 
