@@ -447,8 +447,8 @@ class = "forked-source"
 strategy = "rebase-force-push"
 [repositories.fork_point]
 branch = "crdroid/16.0"
-oid = "a504a05d5c131bd0696d5d8c4b179253b3f4849d"
-behind = 1006
+oid = "15593548c424fbcc4d44b2d07160dbc530ee428d"
+behind = 0
 [[repositories.remotes]]
 name = "origin"
 url = "https://github.com/1vivy/android_frameworks_base.git"
@@ -514,6 +514,10 @@ name = "vendor_oneplus_camera-sm8850-common"
 # because this ROM intends no divergence there.
 class = "forked-source"
 strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "camera-port/16.0"
+oid = "41fd10618f0437e2e57c985b73e42daf3b2b080d"
+behind = 0
 [[repositories.remotes]]
 name = "origin"
 url = "https://github.com/1vivy/vendor_oneplus_camera-sm8850-common.git"
@@ -524,7 +528,7 @@ order = 61
 [[repositories.remotes]]
 name = "camera-port"
 url = "https://github.com/infiniti-camera-port/vendor_oneplus_camera-sm8850-common.git"
-role = "delta-source"
+role = "root-upstream"
 required = true
 purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
 order = 62
@@ -533,6 +537,10 @@ order = 62
 name = "proprietary_vendor_oneplus_camera-sm8850-common"
 class = "blob-forked"
 strategy = "rebase-force-push-proprietary"
+[repositories.fork_point]
+branch = "camera-port/16.0"
+oid = "c9b0760407740e8853bbf660bddc3d407efe09d3"
+behind = 1
 [[repositories.remotes]]
 name = "origin"
 url = "https://github.com/1vivy/proprietary_vendor_oneplus_camera-sm8850-common.git"
@@ -543,7 +551,7 @@ order = 63
 [[repositories.remotes]]
 name = "camera-port"
 url = "https://github.com/infiniti-camera-port/proprietary_vendor_oneplus_camera-sm8850-common.git"
-role = "delta-source"
+role = "root-upstream"
 required = true
 purpose = "Published camera-port work this program layers on top of; the local ref an agent cherry-picks and diffs against."
 order = 64
@@ -805,6 +813,220 @@ order = 90
 # Three pairs exist in this graph. macan, macanc and fairlady have none: their
 # proprietary vendor trees are consumed from the camera-port organization rather
 # than forked under 1vivy, so no 1vivy blob repository pairs with them.
+
+[[repositories]]
+name = "android_frameworks_native"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "da1214c0a2625e98782acec189033c2974614fe4"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_frameworks_native.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM frameworks/native A23 target: crDroid latest plus replayed ICP camera patches; later v6 work follows A23-SOURCE confirmation."
+order = 91
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_frameworks_native.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid frameworks/native root upstream."
+order = 92
+[[repositories.remotes]]
+name = "camera-patches"
+url = "https://github.com/infiniti-camera-port/patches.git"
+role = "delta-source"
+required = true
+purpose = "Input-only ICP camera patch series replayed above crDroid; never a push target."
+order = 93
+
+[[repositories]]
+name = "android_hardware_qcom_display"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2-caf-sm8850"
+oid = "ad047687f2287768cb1b70cf9340981a53b25b5e"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_hardware_qcom_display.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM SM8850 display HAL publication target."
+order = 94
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/android_hardware_qcom_display.git"
+role = "root-upstream"
+required = true
+purpose = "SM8850 display HAL root upstream."
+order = 95
+
+[[repositories]]
+name = "android_packages_apps_GameSpace"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "271ea90d4edc5bb1bc9387af102d7659c7b213a0"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_packages_apps_GameSpace.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM GameSpace publication target."
+order = 96
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_packages_apps_GameSpace.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid GameSpace root upstream."
+order = 97
+
+[[repositories]]
+name = "android_frameworks_opt_telephony"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "4fc406726cd07059834ce26e314e19d4eab32b51"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_frameworks_opt_telephony.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM telephony framework publication target."
+order = 98
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_frameworks_opt_telephony.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid telephony framework root upstream."
+order = 99
+
+[[repositories]]
+name = "android_packages_modules_Connectivity"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "6abc5cd5c3869d05ccee0ec15139c7a6ca71a827"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_packages_modules_Connectivity.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM Connectivity module publication target."
+order = 100
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_packages_modules_Connectivity.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid Connectivity module root upstream."
+order = 101
+
+[[repositories]]
+name = "android_packages_services_Telephony"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "c1ca3e63a12310ae3d49b6176b4fb9046cfb4421"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_packages_services_Telephony.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM Telephony service publication target."
+order = 102
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_packages_services_Telephony.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid Telephony service root upstream."
+order = 103
+
+[[repositories]]
+name = "android_hardware_qcom_audio-ar"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "oneplus/lineage-23.2-caf-sm8850"
+oid = "844dadd9ddae1926c2fd63d7247520ed3be34842"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_hardware_qcom_audio-ar.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM SM8850 audio primary HAL publication target."
+order = 104
+[[repositories.remotes]]
+name = "oneplus"
+url = "https://github.com/OnePlus-SM8850-Development/android_hardware_qcom_audio-ar.git"
+role = "root-upstream"
+required = true
+purpose = "SM8850 audio primary HAL root upstream."
+order = 105
+
+[[repositories]]
+name = "android_packages_modules_Bluetooth"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "crdroid/16.0"
+oid = "01d58e9e450877fa5cc9779882736de967f7a950"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_packages_modules_Bluetooth.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM Bluetooth module publication target."
+order = 106
+[[repositories.remotes]]
+name = "crdroid"
+url = "https://github.com/crdroidandroid/android_packages_modules_Bluetooth.git"
+role = "root-upstream"
+required = true
+purpose = "crDroid Bluetooth module root upstream."
+order = 107
+
+[[repositories]]
+name = "android_packages_modules_Nfc"
+class = "forked-source"
+strategy = "rebase-force-push"
+[repositories.fork_point]
+branch = "lineage/lineage-23.2"
+oid = "393ad5d17936a27b241f2796ff58f877ee9062aa"
+behind = 0
+[[repositories.remotes]]
+name = "origin"
+url = "https://github.com/1vivy/android_packages_modules_Nfc.git"
+role = "ours"
+required = true
+purpose = "Personal-ROM NFC module publication target."
+order = 108
+[[repositories.remotes]]
+name = "lineage"
+url = "https://github.com/LineageOS/android_packages_modules_Nfc.git"
+role = "root-upstream"
+required = true
+purpose = "LineageOS NFC module root upstream."
+order = 109
 
 [[pairs]]
 source = "android_device_oneplus_infiniti"
