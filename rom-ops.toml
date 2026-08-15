@@ -20,11 +20,10 @@ Rows for repositories without a declared `root-upstream` carry
 `n/a (no declared root-upstream)`. Every `root-upstream` row must instead carry a measured
 branch, fork point and distance. Fetch every declared remote before making a base claim.
 '''
-[consumer]
-# Base-manifest authority for provisioning an absent consumer root. The
-# provisioning gate composes this base with the selected local manifest and
-# refuses without it, because a consumer tree inited against an unnamed base is
-# not reproducible.
+[workspace]
+# Identity for updating the existing warm 1vivy organization tree. rom-ops
+# reconciles this base and atomically replaces the one program-owned manifest
+# slot; it never initializes an absent Android root.
 #
 # Every value here is DERIVED from the tree that already builds this program,
 # never chosen: the URL is `remote.origin.url` of
@@ -32,11 +31,13 @@ branch, fork point and distance. Fetch every declared remote before making a bas
 # checkout's `[branch "default"] merge` pin (which is also the base pin the
 # features-v6 manifest header declares), and the groups string is repo's own
 # default because that checkout carries no `manifest.groups` - it was inited
-# without `--groups`. The revision is an exact OID rather than `16.0` so the
-# consumer root cannot drift with crDroid between provisioning runs.
+# without `--groups`. The revision is an exact OID rather than `16.0` so sync
+# cannot drift with crDroid between runs.
+model = "warm-organization-tree"
 base_manifest_url = "https://github.com/crdroidandroid/android.git"
 base_manifest_revision = "a311bc97e4784ee24e8f97e377d06bdbff85b4bb"
 groups = "default"
+local_manifest_slot = "1vivy-rom.xml"
 
 [publication]
 allowed_write_orgs = ["1vivy"]
