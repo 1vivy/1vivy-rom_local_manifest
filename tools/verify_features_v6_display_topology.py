@@ -44,6 +44,16 @@ def linkfiles(project: ET.Element) -> set[tuple[str, str]]:
     }
 
 
+def require_scoped_removal(root: ET.Element, name: str, path: str) -> None:
+    matches = [
+        removal
+        for removal in root.findall("remove-project")
+        if removal.get("name") == name
+    ]
+    if len(matches) != 1 or matches[0].get("path") != path:
+        raise Refusal(f"{name} removal must be scoped to {path}")
+
+
 def validate() -> None:
     feature = parse_manifest(FEATURE_MANIFEST)
     base = parse_manifest(BASE_MANIFEST)
@@ -59,6 +69,16 @@ def validate() -> None:
         "OnePlus-SM8850-Development/android_vendor_qcom_opensource_display-core",
         "hardware/qcom-caf/sm8850/display/core",
         "refs/heads/lineage-23.2-caf-sm8850",
+    )
+    require_scoped_removal(
+        feature,
+        "OnePlus-SM8850-Development/android_hardware_qcom_display",
+        "hardware/qcom-caf/sm8850/display",
+    )
+    require_scoped_removal(
+        feature,
+        "LineageOS/android_hardware_qcom_display",
+        "hardware/qcom-caf/sm8850/display",
     )
     require_project(
         feature,

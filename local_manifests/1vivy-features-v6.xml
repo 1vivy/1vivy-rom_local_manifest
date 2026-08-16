@@ -201,8 +201,10 @@
   <!--    Carrier-only heads; feature topic composition has not begun.   -->
   <!-- ================================================================== -->
 
-  <remove-project name="OnePlus-SM8850-Development/android_hardware_qcom_display" optional="true" />
-  <remove-project name="LineageOS/android_hardware_qcom_display" optional="true" />
+  <remove-project name="OnePlus-SM8850-Development/android_hardware_qcom_display"
+                  path="hardware/qcom-caf/sm8850/display" optional="true" />
+  <remove-project name="LineageOS/android_hardware_qcom_display"
+                  path="hardware/qcom-caf/sm8850/display" optional="true" />
   <project path="hardware/qcom-caf/sm8850/display/hal" name="1vivy/android_hardware_qcom_display"
            remote="github-1vivy" revision="staging/features-v6/all" />
 
