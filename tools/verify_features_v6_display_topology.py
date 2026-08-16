@@ -82,7 +82,11 @@ def validate() -> None:
     require_scoped_removals(
         feature,
         "LineageOS/android_hardware_qcom_display",
-        {"hardware/qcom-caf/sm8850/display"},
+        {
+            "hardware/qcom-caf/sm8450-6.6/display/hal",
+            "hardware/qcom-caf/sm8750/display/hal",
+            "hardware/qcom-caf/sm8850/display",
+        },
     )
     require_project(
         feature,
@@ -126,7 +130,8 @@ def main() -> int:
 
     summary = (
         "PASS features-v6-sm8850-display-topology "
-        + "hal=1 core=1 intf=1 aliases=0 foreign_core=0 foreign_intf=0"
+        + "hal=1 core=1 intf=1 aliases=0 "
+        + "foreign_hal=0 foreign_core=0 foreign_intf=0"
     )
     print(summary)
     return 0
