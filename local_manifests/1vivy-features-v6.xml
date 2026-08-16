@@ -201,6 +201,18 @@
   <!--    Carrier-only heads; feature topic composition has not begun.   -->
   <!-- ================================================================== -->
 
+  <!-- This product composes the native SM8850 display triplet. Keep     -->
+  <!-- unrelated generation cores and interfaces out of its Soong graph -->
+  <!-- instead of making them consume SM8850 namespace defaults.         -->
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_display-core"
+                  path="hardware/qcom-caf/sm8450-6.6/display/core" optional="true" />
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_display-intf"
+                  path="hardware/qcom-caf/sm8450-6.6/display/intf" optional="true" />
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_display-core"
+                  path="hardware/qcom-caf/sm8750/display/core" optional="true" />
+  <remove-project name="LineageOS/android_vendor_qcom_opensource_display-intf"
+                  path="hardware/qcom-caf/sm8750/display/intf" optional="true" />
+
   <remove-project name="OnePlus-SM8850-Development/android_hardware_qcom_display"
                   path="hardware/qcom-caf/sm8850/display" optional="true" />
   <remove-project name="LineageOS/android_hardware_qcom_display"

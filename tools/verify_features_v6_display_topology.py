@@ -44,14 +44,18 @@ def linkfiles(project: ET.Element) -> set[tuple[str, str]]:
     }
 
 
-def require_scoped_removal(root: ET.Element, name: str, path: str) -> None:
-    matches = [
-        removal
+def require_scoped_removals(
+    root: ET.Element,
+    name: str,
+    paths: set[str],
+) -> None:
+    actual = {
+        removal.get("path") or ""
         for removal in root.findall("remove-project")
         if removal.get("name") == name
-    ]
-    if len(matches) != 1 or matches[0].get("path") != path:
-        raise Refusal(f"{name} removal must be scoped to {path}")
+    }
+    if actual != paths:
+        raise Refusal(f"{name} removals must be scoped to {sorted(paths)}, found {sorted(actual)}")
 
 
 def validate() -> None:
@@ -70,21 +74,37 @@ def validate() -> None:
         "hardware/qcom-caf/sm8850/display/core",
         "refs/heads/lineage-23.2-caf-sm8850",
     )
-    require_scoped_removal(
+    require_scoped_removals(
         feature,
         "OnePlus-SM8850-Development/android_hardware_qcom_display",
-        "hardware/qcom-caf/sm8850/display",
+        {"hardware/qcom-caf/sm8850/display"},
     )
-    require_scoped_removal(
+    require_scoped_removals(
         feature,
         "LineageOS/android_hardware_qcom_display",
-        "hardware/qcom-caf/sm8850/display",
+        {"hardware/qcom-caf/sm8850/display"},
     )
     require_project(
         feature,
         "OnePlus-SM8850-Development/android_vendor_qcom_opensource_display-intf",
         "hardware/qcom-caf/sm8850/display/intf",
         "refs/heads/lineage-23.2-caf-sm8850",
+    )
+    require_scoped_removals(
+        feature,
+        "LineageOS/android_vendor_qcom_opensource_display-core",
+        {
+            "hardware/qcom-caf/sm8450-6.6/display/core",
+            "hardware/qcom-caf/sm8750/display/core",
+        },
+    )
+    require_scoped_removals(
+        feature,
+        "LineageOS/android_vendor_qcom_opensource_display-intf",
+        {
+            "hardware/qcom-caf/sm8450-6.6/display/intf",
+            "hardware/qcom-caf/sm8750/display/intf",
+        },
     )
 
     display = project_by_name(feature, "1vivy/android_hardware_qcom_display")
@@ -104,7 +124,13 @@ def main() -> int:
         print(f"REFUSED features-v6-sm8850-display-topology {exc}")
         return 1
 
-    print("PASS features-v6-sm8850-display-topology hal=1 core=1 intf=1 aliases=0")
+    summary = " ".join(
+        (
+            "PASS features-v6-sm8850-display-topology",
+            "hal=1 core=1 intf=1 aliases=0 foreign_core=0 foreign_intf=0",
+        )
+    )
+    print(summary)
     return 0
 
 
