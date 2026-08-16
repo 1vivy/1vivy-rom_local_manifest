@@ -124,11 +124,9 @@ def main() -> int:
         print(f"REFUSED features-v6-sm8850-display-topology {exc}")
         return 1
 
-    summary = " ".join(
-        (
-            "PASS features-v6-sm8850-display-topology",
-            "hal=1 core=1 intf=1 aliases=0 foreign_core=0 foreign_intf=0",
-        )
+    summary = (
+        "PASS features-v6-sm8850-display-topology "
+        + "hal=1 core=1 intf=1 aliases=0 foreign_core=0 foreign_intf=0"
     )
     print(summary)
     return 0
